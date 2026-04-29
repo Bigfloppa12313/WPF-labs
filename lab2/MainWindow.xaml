@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="300" Width="800">
+    <DockPanel LastChildFill="False">
+        <Label DockPanel.Dock="Top" HorizontalAlignment ="Center">Label</Label>
+        <TextBox DockPanel.Dock="Left" Width="350">TextBox</TextBox>
+        <TextBox DockPanel.Dock="Right" Width="350">TextBox</TextBox>
+        <Button DockPanel.Dock="Bottom" Margin="0,0,0,40" Height="20" Width="70" >Button</Button>
+    </DockPanel>
+
 </Window>
