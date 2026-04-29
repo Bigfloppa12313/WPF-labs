@@ -46,11 +46,11 @@
                 <RowDefinition ></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBox FontSize="{Binding ElementName=fontSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Margin ="10" VerticalScrollBarVisibility="Visible"></TextBox >
+            <TextBox x:Name="inputTextBox" FontSize="{Binding ElementName=fontSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Margin ="10" VerticalScrollBarVisibility="Visible"></TextBox >
             <DockPanel Grid.Row="1" Margin="10">
                 <Label DockPanel.Dock="Left" Content="Розмір шрифту: " VerticalAlignment="Center"></Label>
                 <Slider DockPanel.Dock="Left" MinWidth="100" Name="fontSlider" Margin="4" Minimum="12" Maximum="100"></Slider>
-                <Button DockPanel.Dock="Bottom" HorizontalAlignment="Center" Style="{x:Null}">
+                <Button ToolTip="Зберегти" Command="Save" DockPanel.Dock="Bottom" HorizontalAlignment="Center" Style="{x:Null}">
                     OK
                 </Button>
             </DockPanel>

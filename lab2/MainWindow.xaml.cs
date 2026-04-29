@@ -23,6 +23,24 @@ namespace lab2
         public MainWindow()
         {
             InitializeComponent();
+
+            CommandBinding saveCommand = new CommandBinding(
+                ApplicationCommands.Save,
+                execute_Save,
+                canExecute_Save);
+
+            CommandBindings.Add(saveCommand);
         }
+
+        void canExecute_Save(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (inputTextBox.Text.Trim().Length > 0) e.CanExecute = true; else e.CanExecute = false;
+        }
+        void execute_Save(object sender, ExecutedRoutedEventArgs e)
+        {
+            System.IO.File.WriteAllText("d:\\myFile.txt", inputTextBox.Text);
+            MessageBox.Show("The file was saved!");
+        }
+
     }
 }
