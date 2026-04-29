@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="TextEditor" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" ></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button Width="100" ToolTip="Відкрити">
+                <Image Source="/images/1.png"/>
+            </Button>
+            <Button Width="100" ToolTip="Стерти">
+                <Image Source="/images/2.png"/>
+            </Button>
+            <Button Width="100" ToolTip="Копіювати">
+                <Image Source="/images/3.png"/>
+            </Button>
+            <Button Width="100" ToolTip="Вставити">
+                <Image Source="/images/4.png"/>
+            </Button>
+        </StackPanel>
+        <Border Grid.Row="0" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10"></Border>
     </Grid>
+
 </Window>
