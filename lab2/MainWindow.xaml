@@ -6,7 +6,13 @@
         xmlns:local="clr-namespace:lab2"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel x:Name="stackPanel" HorizontalAlignment ="Center" Width ="500" Height="300">
+        <Label HorizontalAlignment ="Center">Label</Label>
+        <TextBox >TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+        <TextBox>TextBox</TextBox>
+
+        <Button HorizontalAlignment ="Center" Width="200" Margin="0,50,0,0">Button</Button>
+    </StackPanel>
 </Window>
