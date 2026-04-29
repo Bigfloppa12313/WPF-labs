@@ -27,10 +27,10 @@
         </Grid.RowDefinitions>
         <Border Background="{StaticResource LinearPanelBrush}" Grid.Row="0" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10"></Border>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Button Width="100" ToolTip="Відкрити">
+            <Button Width="100" ToolTip="Відкрити" Command="Open">
                 <Image Source="/images/1.png"/>
             </Button>
-            <Button Width="100" ToolTip="Стерти">
+            <Button Width="100" ToolTip="Стерти" Command="Delete">
                 <Image Source="/images/2.png"/>
             </Button>
             <Button Width="100" ToolTip="Копіювати">
