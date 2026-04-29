@@ -23,6 +23,52 @@ namespace lab2
         public MainWindow()
         {
             InitializeComponent();
+
+            CommandBinding saveCommand = new CommandBinding(
+                ApplicationCommands.Save,
+                execute_Save,
+                canExecute_Save);
+
+            CommandBindings.Add(saveCommand);
+
+            CommandBinding openCommand = new CommandBinding(
+                ApplicationCommands.Open,
+                execute_Open,
+                canExecute_Open);
+            CommandBindings.Add(openCommand);
+
+            CommandBinding deleteCommand = new CommandBinding(
+                ApplicationCommands.Delete,
+                execute_Delete,
+                canExecute_Delete);
+            CommandBindings.Add(deleteCommand);
+        }
+
+        void canExecute_Save(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (inputTextBox.Text.Trim().Length > 0) e.CanExecute = true; else e.CanExecute = false;
+        }
+        void execute_Save(object sender, ExecutedRoutedEventArgs e)
+        {
+            System.IO.File.WriteAllText("d:\\myFile.txt", inputTextBox.Text);
+            MessageBox.Show("The file was saved!");
+        }
+        void canExecute_Open(object sender, CanExecuteRoutedEventArgs e)
+        {             e.CanExecute = System.IO.File.Exists("d:\\myFile.txt");
+        }
+        void execute_Open(object sender, ExecutedRoutedEventArgs e)
+        {
+            inputTextBox.Text = System.IO.File.ReadAllText("d:\\myFile.txt");
+            MessageBox.Show("The file was opened!");
+        }
+        void canExecute_Delete(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (inputTextBox.Text.Trim().Length > 0) e.CanExecute = true; else e.CanExecute = false;
+        }
+        void execute_Delete(object sender, ExecutedRoutedEventArgs e)
+        {
+            inputTextBox.Clear();
+            MessageBox.Show("The text was deleted!");
         }
     }
 }

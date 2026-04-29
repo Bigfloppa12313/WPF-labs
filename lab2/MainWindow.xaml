@@ -5,8 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="TextEditor" Height="450" Width="800">
+    <Window.Resources>
+        <LinearGradientBrush x:Key="LinearPanelBrush">
+            <GradientStop Color="Yellow" Offset="0"></GradientStop>
+            <GradientStop Color="Aqua" Offset="0.5"></GradientStop>
+            <GradientStop Color="Yellow" Offset="1"></GradientStop>
+        </LinearGradientBrush>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="BorderBrush" Value="White"></Setter>
+        </Style>
+
+
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" ></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Background="{StaticResource LinearPanelBrush}" Grid.Row="0" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10"></Border>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" FocusManager.IsFocusScope="True">
+            <Button Width="100" ToolTip="Відкрити" Command="Open">
+                <Image Source="/images/1.png"/>
+            </Button>
+            <Button Width="100" ToolTip="Стерти" Command="Delete">
+                <Image Source="/images/2.png"/>
+            </Button>
+            <Button Width="100" ToolTip="Копіювати" Command="Copy">
+                <Image Source="/images/3.png"/>
+            </Button>
+            <Button Width="100" ToolTip="Вставити" Command="Paste">
+                <Image Source="/images/4.png"/>
+            </Button>
+        </StackPanel>
+        <Border Background="{StaticResource LinearPanelBrush}" Grid.Row="1" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10"></Border>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="inputTextBox" FontSize="{Binding ElementName=fontSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Margin ="10" VerticalScrollBarVisibility="Visible"></TextBox >
+            <DockPanel Grid.Row="1" Margin="10">
+                <Label DockPanel.Dock="Left" Content="Розмір шрифту: " VerticalAlignment="Center"></Label>
+                <Slider DockPanel.Dock="Left" MinWidth="100" Name="fontSlider" Margin="4" Minimum="12" Maximum="100"></Slider>
+                <Button ToolTip="Зберегти" Command="Save" DockPanel.Dock="Bottom" HorizontalAlignment="Center" Style="{x:Null}">
+                    OK
+                </Button>
+            </DockPanel>
+        </Grid>
     </Grid>
+
 </Window>
